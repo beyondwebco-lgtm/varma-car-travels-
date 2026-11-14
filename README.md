@@ -164,6 +164,7 @@ d:\static\varma car\
 ## 📞 Company Contact Details
 
 - **Company**: VARMA CAR TRAVELS
+- **Email**: [varmacartravels7@gmail.com](mailto:varmacartravels7@gmail.com)
 - **Helplines**: `+91 7569526527` & `+91 9912196524`
 - **Location**: Latitude: `16.768000`, Longitude: `81.681306` (Google Maps: [View Location](https://www.google.com/maps?q=16.768000,81.681306))
 - **Operating Hours**: 24/7 Available (All 365 Days)
