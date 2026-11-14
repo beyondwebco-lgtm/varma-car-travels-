@@ -2351,3 +2351,648 @@ ul {
   color: #22C55E;
   font-size: 1.2rem;
 }
+
+/* ==========================================================================
+   COMPREHENSIVE ALL-SCREEN RESPONSIVE SYSTEM (TABLETS & PHONES)
+   Tested across 320px, 375px, 414px, 480px, 768px, 820px, 1024px, 1280px+
+   ========================================================================== */
+
+/* --- TABLET ADAPTATIONS (<= 1024px) --- */
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 76px;
+  }
+
+  .section-padding {
+    padding: 75px 0;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 60px 0 80px 0;
+  }
+
+  .hero-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-text-block {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-tagline {
+    border-left: none;
+    border-top: 2px solid var(--gold-500);
+    padding-left: 0;
+    padding-top: 12px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-description {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-features-strip {
+    justify-content: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-booking-card {
+    max-width: 650px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .about-text-col {
+    text-align: center;
+  }
+
+  .about-text-col .section-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-text-col div[style*="display: flex"] {
+    justify-content: center;
+  }
+
+  .about-visual-card {
+    max-width: 680px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .location-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .location-map-panel {
+    min-height: 380px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+}
+
+/* --- LARGE PHONES & TABLET PORTRAIT (<= 768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .section-desc {
+    font-size: 0.985rem;
+  }
+
+  /* Header & Brand */
+  .brand-logo img {
+    height: 40px;
+  }
+
+  .brand-title {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+    letter-spacing: 1.6px;
+  }
+
+  .nav-actions {
+    gap: 10px;
+  }
+
+  .nav-actions .btn {
+    padding: 9px 18px;
+    font-size: 0.85rem;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 45px 0 65px 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+  }
+
+  .hero-description {
+    font-size: 0.985rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .hero-cta-group {
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .hero-cta-group .btn {
+    padding: 12px 24px;
+    font-size: 0.925rem;
+  }
+
+  .hero-booking-card {
+    padding: 26px 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Vehicles Grid */
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+    gap: 24px;
+  }
+
+  .vehicle-filters {
+    gap: 8px;
+    margin-bottom: 35px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  /* Why Choose Us */
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  /* Location */
+  .location-info-panel {
+    padding: 32px 22px;
+  }
+
+  .location-title {
+    font-size: 1.7rem;
+  }
+
+  .location-map-panel {
+    min-height: 340px;
+  }
+
+  /* Floating Widgets */
+  .floating-whatsapp-widget {
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    right: 16px;
+  }
+
+  .floating-whatsapp-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 1.75rem;
+  }
+
+  .floating-whatsapp-popover {
+    width: min(290px, calc(100vw - 32px));
+    right: 0;
+  }
+
+  .floating-call-widget {
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    left: 16px;
+    display: block;
+  }
+
+  .floating-call-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.45rem;
+  }
+
+  .floating-call-popover {
+    width: min(270px, calc(100vw - 32px));
+    left: 0;
+  }
+
+  .back-to-top-btn {
+    bottom: max(80px, calc(env(safe-area-inset-bottom, 16px) + 70px));
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+/* --- STANDARD & SMALL PHONES (<= 580px) --- */
+@media (max-width: 580px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Top Bar */
+  .top-bar {
+    padding: 6px 0;
+  }
+
+  .top-bar-item {
+    font-size: 0.775rem;
+  }
+
+  .top-badge-pulse {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+  }
+
+  /* Header & Logo */
+  .brand-logo img {
+    height: 36px;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+    letter-spacing: 0.6px;
+  }
+
+  .brand-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 1.2px;
+  }
+
+  .nav-actions .btn {
+    display: none; /* Hide header Book button on small phones, mobile menu & hero provide prominent access */
+  }
+
+  .mobile-toggle-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 35px 0 50px 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+  }
+
+  .hero-description {
+    font-size: 0.925rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn,
+  .hero-cta-group .call-btn-dropdown,
+  .hero-cta-group .call-btn-dropdown .btn {
+    width: 100%;
+  }
+
+  .call-dropdown-menu {
+    width: 100%;
+  }
+
+  /* Hero Booking Card */
+  .hero-booking-card {
+    padding: 22px 15px;
+  }
+
+  .booking-card-title {
+    font-size: 1.3rem;
+  }
+
+  .booking-card-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .booking-trip-type {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .trip-type-btn {
+    padding: 7px 4px;
+    font-size: 0.78rem;
+  }
+
+  .form-control {
+    font-size: 0.885rem;
+    padding: 11px 12px 11px 38px;
+  }
+
+  .input-with-icon i {
+    left: 12px;
+    font-size: 0.85rem;
+  }
+
+  /* Trust Grid */
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trust-item {
+    gap: 14px;
+  }
+
+  .trust-icon-box {
+    width: 46px;
+    height: 46px;
+    font-size: 1.25rem;
+  }
+
+  .trust-title {
+    font-size: 0.985rem;
+  }
+
+  /* About Section */
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pillar-card {
+    padding: 16px 14px;
+  }
+
+  .about-visual-card {
+    padding: 25px 18px;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .stat-box {
+    padding: 16px 10px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.725rem;
+  }
+
+  /* Vehicle Filter Horizontal Swipe Bar on Phones */
+  .vehicle-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .vehicle-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 0.825rem;
+  }
+
+  /* Vehicle Cards */
+  .vehicle-card-body {
+    padding: 20px 16px;
+  }
+
+  .vehicle-card-title {
+    font-size: 1.25rem;
+  }
+
+  .vehicle-card-desc {
+    font-size: 0.85rem;
+  }
+
+  .vehicle-specs-list {
+    gap: 6px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+
+  .spec-chip {
+    font-size: 0.725rem;
+    padding: 3px 8px;
+  }
+
+  /* Services & Why Us */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 24px 18px;
+  }
+
+  .why-us-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .why-card {
+    padding: 24px 18px;
+  }
+
+  /* Location Section */
+  .location-info-panel {
+    padding: 26px 16px;
+  }
+
+  .location-title {
+    font-size: 1.5rem;
+  }
+
+  .location-actions-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .location-actions-group .btn {
+    width: 100%;
+  }
+
+  .location-map-panel {
+    min-height: 290px;
+  }
+
+  /* Contact Section */
+  .contact-channel-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .contact-action-btns {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .contact-action-btns .btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .contact-form-panel {
+    padding: 24px 16px;
+  }
+
+  .contact-form-title {
+    font-size: 1.35rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding-top: 55px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .footer-badges-list {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Booking Modal */
+  .booking-modal-box {
+    padding: 24px 16px;
+    border-radius: var(--radius-lg);
+    max-height: 94vh;
+  }
+
+  .modal-title {
+    font-size: 1.35rem;
+  }
+}
+
+/* --- EXTRA COMPACT PHONES (<= 360px - e.g. iPhone SE / small Androids) --- */
+@media (max-width: 360px) {
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+
+  .floating-whatsapp-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .floating-call-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.3rem;
+  }
+}
+

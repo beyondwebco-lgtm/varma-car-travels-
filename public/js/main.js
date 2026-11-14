@@ -287,6 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatingWaBtn = document.getElementById('floatingWaBtn');
   const floatingWaWidget = document.querySelector('.floating-whatsapp-widget');
   floatingWaBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (window.innerWidth <= 768) {
       floatingWaWidget?.classList.toggle('open');
     } else {
@@ -297,8 +298,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const floatingCallBtn = document.getElementById('floatingCallBtn');
   const floatingCallWidget = document.querySelector('.floating-call-widget');
-  floatingCallBtn?.addEventListener('click', () => {
+  floatingCallBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
     floatingCallWidget?.classList.toggle('open');
+  });
+
+  // Close floating popovers when tapping outside on mobile
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.floating-whatsapp-widget')) {
+      floatingWaWidget?.classList.remove('open');
+    }
+    if (!e.target.closest('.floating-call-widget')) {
+      floatingCallWidget?.classList.remove('open');
+    }
   });
 
   // Set default min date for date inputs to today
