@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="etiosBody" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="35%" stop-color="#E2E8F0"/>
+      <stop offset="70%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="etiosGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <radialGradient id="studioLight" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#2A3342" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0B0F17" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="wheelRim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="40%" stop-color="#475569"/>
+      <stop offset="80%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <filter id="carShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="600" height="360" rx="16" fill="url(#studioLight)"/>
+  
+  <!-- Subtle Grid lines -->
+  <path d="M0 270 L600 270 M0 300 L600 300" stroke="#1E293B" stroke-width="1" stroke-dasharray="8 8"/>
+  <ellipse cx="300" cy="275" rx="240" ry="25" fill="#030712" opacity="0.8" filter="url(#carShadow)"/>
+
+  <!-- Badge Top Right -->
+  <g transform="translate(450, 25)">
+    <rect width="125" height="30" rx="15" fill="#1E293B" stroke="url(#goldAcc)" stroke-width="1.5"/>
+    <text x="62" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#FBBF24" text-anchor="middle">4 + 1 SEATER</text>
+  </g>
+
+  <!-- Category Badge Top Left -->
+  <g transform="translate(25, 25)">
+    <rect width="105" height="26" rx="6" fill="#F59E0B" fill-opacity="0.15" stroke="#F59E0B" stroke-width="1"/>
+    <text x="52" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#FBBF24" text-anchor="middle">EXECUTIVE SEDAN</text>
+  </g>
+
+  <!-- Car Body: Toyota Etios -->
+  <g id="car-etios" transform="translate(30, 38)">
+    <!-- Tall, roomy sedan profile with spacious rear trunk -->
+    <path d="M 50 198 
+             C 50 174, 75 162, 115 160 
+             L 165 160 
+             C 195 115, 245 92, 315 90 
+             L 400 92 
+             C 435 118, 470 162, 485 174 
+             L 520 182 
+             C 538 188, 545 206, 540 222 
+             L 528 228 
+             L 500 228 
+             C 495 204, 465 188, 440 188 
+             C 415 188, 385 204, 380 228 
+             L 205 228 
+             C 200 204, 170 188, 145 188 
+             C 120 188, 90 204, 85 228 
+             L 48 228 
+             C 42 220, 44 205, 50 198 Z" 
+          fill="url(#etiosBody)" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- Windows (Spacious greenhouse with high roofline) -->
+    <path d="M 170 156 
+             C 202 120, 246 98, 310 96 
+             L 392 98 
+             C 422 122, 452 155, 462 165 
+             L 315 165 
+             L 170 156 Z" 
+          fill="url(#etiosGlass)" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Pillar Division -->
+    <path d="M 312 96 L 312 165" stroke="#334155" stroke-width="7"/>
+    <path d="M 200 128 L 210 160" stroke="#334155" stroke-width="4"/>
+
+    <!-- Window Light Sheen -->
+    <path d="M 220 108 L 380 108 L 355 125 L 210 125 Z" fill="#FFFFFF" opacity="0.18"/>
+
+    <!-- High character crease line -->
+    <path d="M 110 172 Q 300 172 515 186" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    <path d="M 80 205 Q 300 202 525 210" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+
+    <!-- Doors & handles -->
+    <path d="M 310 165 L 308 228" stroke="#64748B" stroke-width="1.2"/>
+    <path d="M 195 160 L 190 228" stroke="#64748B" stroke-width="1.2"/>
+    <rect x="210" y="170" width="22" height="5" rx="2.5" fill="#CBD5E1" stroke="#475569" stroke-width="0.8"/>
+    <rect x="325" y="170" width="22" height="5" rx="2.5" fill="#CBD5E1" stroke="#475569" stroke-width="0.8"/>
+
+    <!-- Headlight (Toyota Smile Grille) -->
+    <path d="M 475 174 L 525 182 C 534 188 538 198 532 205 L 490 200 Z" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1.5"/>
+    <polygon points="500,182 525,188 515,198 495,195" fill="#38BDF8" opacity="0.7"/>
+
+    <!-- Taillight -->
+    <path d="M 49 194 C 47 180 58 168 70 168 L 85 170 L 78 195 L 49 195 Z" fill="#EF4444" stroke="#DC2626" stroke-width="1"/>
+    
+    <!-- Toyota Signature Chrome Grille Accent -->
+    <path d="M 515 198 C 530 202 538 208 535 214 L 510 216 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+    <circle cx="522" cy="216" r="3.5" fill="#FBBF24"/>
+
+    <!-- Wheels -->
+    <g transform="translate(145, 228)">
+      <circle cx="0" cy="0" r="38" fill="#0F172A" stroke="#334155" stroke-width="2"/>
+      <circle cx="0" cy="0" r="34" fill="#1E293B"/>
+      <circle cx="0" cy="0" r="25" fill="url(#wheelRim)" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M0 -23 L0 23 M-23 0 L23 0 M-16 -16 L16 16 M-16 16 L16 -16" stroke="#E2E8F0" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="7" fill="#F59E0B"/>
+    </g>
+
+    <g transform="translate(440, 228)">
+      <circle cx="0" cy="0" r="38" fill="#0F172A" stroke="#334155" stroke-width="2"/>
+      <circle cx="0" cy="0" r="34" fill="#1E293B"/>
+      <circle cx="0" cy="0" r="25" fill="url(#wheelRim)" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M0 -23 L0 23 M-23 0 L23 0 M-16 -16 L16 16 M-16 16 L16 -16" stroke="#E2E8F0" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="7" fill="#F59E0B"/>
+    </g>
+
+    <!-- Side Skirt Chrome Strip -->
+    <path d="M 190 225 L 395 225" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Model Nameplate at Bottom -->
+  <text x="300" y="325" font-family="'Outfit', 'Montserrat', sans-serif" font-weight="800" font-size="18" fill="#F1F5F9" letter-spacing="1.5" text-anchor="middle">
+    TOYOTA ETIOS
+  </text>
+  <text x="300" y="344" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="11" fill="#94A3B8" letter-spacing="1" text-anchor="middle">
+    4+1 SEATER • 592L MEGA BOOT • MAX LEGROOM • AC COMFORT
+  </text>
+</svg>

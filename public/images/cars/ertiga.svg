@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ertigaBody" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="35%" stop-color="#E2E8F0"/>
+      <stop offset="70%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="ertigaGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="60%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <radialGradient id="studioLight" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#2A3342" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0B0F17" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="wheelRim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="40%" stop-color="#475569"/>
+      <stop offset="80%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <filter id="carShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="600" height="360" rx="16" fill="url(#studioLight)"/>
+  
+  <!-- Subtle Grid lines -->
+  <path d="M0 270 L600 270 M0 300 L600 300" stroke="#1E293B" stroke-width="1" stroke-dasharray="8 8"/>
+  <ellipse cx="300" cy="275" rx="240" ry="25" fill="#030712" opacity="0.8" filter="url(#carShadow)"/>
+
+  <!-- Badge Top Right -->
+  <g transform="translate(450, 25)">
+    <rect width="125" height="30" rx="15" fill="#1E293B" stroke="url(#goldAcc)" stroke-width="1.5"/>
+    <text x="62" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#FBBF24" text-anchor="middle">6 + 1 SEATER</text>
+  </g>
+
+  <!-- Category Badge Top Left -->
+  <g transform="translate(25, 25)">
+    <rect width="90" height="26" rx="6" fill="#F59E0B" fill-opacity="0.15" stroke="#F59E0B" stroke-width="1"/>
+    <text x="45" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#FBBF24" text-anchor="middle">FAMILY MPV</text>
+  </g>
+
+  <!-- Car Body: Maruti Suzuki Ertiga -->
+  <g id="car-ertiga" transform="translate(25, 32)">
+    <!-- Roof Rails -->
+    <path d="M 175 75 L 400 78" stroke="#CBD5E1" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="185" y="77" width="10" height="6" fill="#475569"/>
+    <rect x="290" y="78" width="10" height="6" fill="#475569"/>
+    <rect x="385" y="79" width="10" height="6" fill="#475569"/>
+
+    <!-- MPV Extended Body Profile -->
+    <path d="M 45 205 
+             C 45 155, 60 135, 110 98 
+             C 125 90, 160 84, 210 82 
+             L 395 84 
+             C 430 115, 465 155, 485 168 
+             L 530 178 
+             C 548 184, 555 202, 550 220 
+             L 538 228 
+             L 508 228 
+             C 502 204, 472 188, 445 188 
+             C 418 188, 388 204, 382 228 
+             L 195 228 
+             C 190 204, 160 188, 133 188 
+             C 106 188, 76 204, 70 228 
+             L 42 228 
+             C 38 220, 39 212, 45 205 Z" 
+          fill="url(#ertigaBody)" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- Windows (3 Row Glass Greenhouse with floating roof effect) -->
+    <path d="M 115 102 
+             L 205 90 
+             L 390 90 
+             C 418 116, 448 150, 460 162 
+             L 100 162 
+             C 85 140, 95 118, 115 102 Z" 
+          fill="url(#ertigaGlass)" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Blacked-out Pillars (A, B, C, D Pillars for Ertiga Floating Roof) -->
+    <path d="M 215 90 L 210 162" stroke="#0F172A" stroke-width="7"/>
+    <path d="M 320 90 L 315 162" stroke="#0F172A" stroke-width="7"/>
+    <path d="M 412 110 L 418 162" stroke="#0F172A" stroke-width="5"/>
+    <path d="M 108 108 L 100 162" stroke="#0F172A" stroke-width="7"/>
+
+    <!-- Dynamic Window Sheen -->
+    <path d="M 140 102 L 370 102 L 340 120 L 130 120 Z" fill="#FFFFFF" opacity="0.18"/>
+
+    <!-- Sculpted Body Lines -->
+    <path d="M 70 174 Q 280 170 520 184" stroke="#FFFFFF" stroke-width="2.5" fill="none"/>
+    <path d="M 68 206 Q 280 202 530 210" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+
+    <!-- Doors & Handles -->
+    <path d="M 315 162 L 312 228" stroke="#64748B" stroke-width="1.2"/>
+    <path d="M 205 162 L 200 228" stroke="#64748B" stroke-width="1.2"/>
+    <rect x="220" y="172" width="22" height="5" rx="2.5" fill="#FFFFFF" stroke="#475569" stroke-width="0.8"/>
+    <rect x="330" y="172" width="22" height="5" rx="2.5" fill="#FFFFFF" stroke="#475569" stroke-width="0.8"/>
+
+    <!-- Ertiga L-shaped 3D LED Taillight -->
+    <path d="M 46 195 L 48 135 C 54 135 62 145 62 160 L 58 198 Z" fill="#EF4444" stroke="#DC2626" stroke-width="1"/>
+    
+    <!-- Chrome Headlight with Projector -->
+    <path d="M 475 165 L 532 176 C 544 184 546 196 540 204 L 498 198 Z" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1.5"/>
+    <circle cx="515" cy="184" r="5" fill="#38BDF8" opacity="0.8"/>
+
+    <!-- Front Bumper Grille with Chrome Studs -->
+    <path d="M 522 195 C 540 198 548 206 544 216 L 512 220 Z" fill="#1E293B"/>
+    <circle cx="530" cy="214" r="3.5" fill="#FBBF24"/>
+
+    <!-- Wheels (Alloys) -->
+    <g transform="translate(133, 228)">
+      <circle cx="0" cy="0" r="39" fill="#0F172A" stroke="#334155" stroke-width="2"/>
+      <circle cx="0" cy="0" r="34" fill="#1E293B"/>
+      <circle cx="0" cy="0" r="26" fill="url(#wheelRim)" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M0 -24 L0 24 M-24 0 L24 0 M-17 -17 L17 17 M-17 17 L17 -17" stroke="#E2E8F0" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="7" fill="#F59E0B"/>
+    </g>
+
+    <g transform="translate(445, 228)">
+      <circle cx="0" cy="0" r="39" fill="#0F172A" stroke="#334155" stroke-width="2"/>
+      <circle cx="0" cy="0" r="34" fill="#1E293B"/>
+      <circle cx="0" cy="0" r="26" fill="url(#wheelRim)" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M0 -24 L0 24 M-24 0 L24 0 M-17 -17 L17 17 M-17 17 L17 -17" stroke="#E2E8F0" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="7" fill="#F59E0B"/>
+    </g>
+
+    <!-- Chrome Side Garnish -->
+    <path d="M 180 225 L 398 225" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Model Nameplate at Bottom -->
+  <text x="300" y="325" font-family="'Outfit', 'Montserrat', sans-serif" font-weight="800" font-size="18" fill="#F1F5F9" letter-spacing="1.5" text-anchor="middle">
+    MARUTI SUZUKI ERTIGA
+  </text>
+  <text x="300" y="344" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="11" fill="#94A3B8" letter-spacing="1" text-anchor="middle">
+    6+1 SEATER • DUAL ROOF AC • SMART HYBRID • FLEXIBLE LUGGAGE
+  </text>
+</svg>

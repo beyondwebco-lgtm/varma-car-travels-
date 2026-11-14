@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="innovaBody" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="35%" stop-color="#CBD5E1"/>
+      <stop offset="70%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="innovaGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="60%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <radialGradient id="studioLight" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#2A3342" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0B0F17" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="wheelRim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="40%" stop-color="#475569"/>
+      <stop offset="80%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <filter id="carShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="600" height="360" rx="16" fill="url(#studioLight)"/>
+  
+  <path d="M0 270 L600 270 M0 300 L600 300" stroke="#1E293B" stroke-width="1" stroke-dasharray="8 8"/>
+  <ellipse cx="300" cy="275" rx="245" ry="25" fill="#030712" opacity="0.9" filter="url(#carShadow)"/>
+
+  <!-- Badge Top Right -->
+  <g transform="translate(450, 25)">
+    <rect width="125" height="30" rx="15" fill="#1E293B" stroke="url(#goldAcc)" stroke-width="1.5"/>
+    <text x="62" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#FBBF24" text-anchor="middle">7 + 1 SEATER</text>
+  </g>
+
+  <!-- Category Badge Top Left -->
+  <g transform="translate(25, 25)">
+    <rect width="105" height="26" rx="6" fill="#F59E0B" fill-opacity="0.15" stroke="#F59E0B" stroke-width="1"/>
+    <text x="52" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#FBBF24" text-anchor="middle">HIGHWAY LEGEND</text>
+  </g>
+
+  <!-- Car Body: Toyota Innova -->
+  <g id="car-innova" transform="translate(25, 30)">
+    <!-- Roof Rails / Carrier Mount -->
+    <path d="M 145 70 L 405 73" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round"/>
+    <rect x="155" y="72" width="12" height="7" fill="#475569"/>
+    <rect x="275" y="73" width="12" height="7" fill="#475569"/>
+    <rect x="390" y="74" width="12" height="7" fill="#475569"/>
+
+    <!-- Tough, commanding MPV silhouette with high clearance -->
+    <path d="M 40 205 
+             C 40 148, 55 125, 105 88 
+             C 125 80, 160 74, 215 72 
+             L 398 74 
+             C 438 102, 475 142, 498 156 
+             L 542 166 
+             C 560 174, 565 194, 558 215 
+             L 545 226 
+             L 512 226 
+             C 506 200, 475 184, 448 184 
+             C 420 184, 388 200, 382 226 
+             L 190 226 
+             C 185 200, 155 184, 128 184 
+             C 100 184, 70 200, 65 226 
+             L 36 226 
+             C 32 218, 34 212, 40 205 Z" 
+          fill="url(#innovaBody)" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- Windows (Big 3-Row Glass Area with classic Innova triangular quarter glass) -->
+    <path d="M 108 92 
+             L 210 78 
+             L 392 78 
+             C 425 106, 458 138, 474 150 
+             L 94 150 
+             C 80 128, 90 106, 108 92 Z" 
+          fill="url(#innovaGlass)" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Innova Thick B & C Pillars -->
+    <path d="M 215 78 L 210 150" stroke="#0F172A" stroke-width="8"/>
+    <path d="M 320 78 L 315 150" stroke="#0F172A" stroke-width="8"/>
+    <path d="M 425 98 L 430 150" stroke="#0F172A" stroke-width="6"/>
+    <path d="M 102 96 L 94 150" stroke="#0F172A" stroke-width="7"/>
+
+    <!-- Dynamic Window Sheen -->
+    <path d="M 130 90 L 375 90 L 345 110 L 120 110 Z" fill="#FFFFFF" opacity="0.2"/>
+
+    <!-- Muscular Shoulder Line -->
+    <path d="M 60 165 Q 280 158 535 170" stroke="#FFFFFF" stroke-width="2.5" fill="none"/>
+    <path d="M 60 200 Q 280 196 540 206" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+
+    <!-- Doors & Handles -->
+    <path d="M 315 150 L 310 226" stroke="#64748B" stroke-width="1.2"/>
+    <path d="M 205 150 L 200 226" stroke="#64748B" stroke-width="1.2"/>
+    <rect x="220" y="160" width="24" height="6" rx="3" fill="#FFFFFF" stroke="#475569" stroke-width="0.8"/>
+    <rect x="330" y="160" width="24" height="6" rx="3" fill="#FFFFFF" stroke="#475569" stroke-width="0.8"/>
+
+    <!-- Iconic Innova Headlamp Assembly -->
+    <path d="M 488 152 L 546 164 C 555 174 558 186 550 196 L 508 190 Z" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1.5"/>
+    <polygon points="510,162 542,172 534,188 506,182" fill="#38BDF8" opacity="0.75"/>
+
+    <!-- Bold Chrome Grille with Toyota Ellipse Accent -->
+    <path d="M 532 185 C 550 188 558 196 552 208 L 520 214 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+    <ellipse cx="538" cy="198" rx="8" ry="5" fill="#CBD5E1" stroke="#334155" stroke-width="1"/>
+
+    <!-- Distinctive Vertical Tail Lamp -->
+    <path d="M 40 198 L 44 128 C 52 128 60 138 60 152 L 54 198 Z" fill="#EF4444" stroke="#DC2626" stroke-width="1"/>
+    <polygon points="45,135 55,142 50,175 42,175" fill="#F87171" opacity="0.85"/>
+
+    <!-- Wheels (Beefy 16" Alloy Highway Wheels with High Ground Clearance) -->
+    <g transform="translate(128, 226)">
+      <circle cx="0" cy="0" r="42" fill="#0F172A" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="36" fill="#1E293B"/>
+      <circle cx="0" cy="0" r="28" fill="url(#wheelRim)" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M0 -25 L0 25 M-25 0 L25 0 M-18 -18 L18 18 M-18 18 L18 -18" stroke="#E2E8F0" stroke-width="3"/>
+      <circle cx="0" cy="0" r="8" fill="#F59E0B"/>
+    </g>
+
+    <g transform="translate(448, 226)">
+      <circle cx="0" cy="0" r="42" fill="#0F172A" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="36" fill="#1E293B"/>
+      <circle cx="0" cy="0" r="28" fill="url(#wheelRim)" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M0 -25 L0 25 M-25 0 L25 0 M-18 -18 L18 18 M-18 18 L18 -18" stroke="#E2E8F0" stroke-width="3"/>
+      <circle cx="0" cy="0" r="8" fill="#F59E0B"/>
+    </g>
+
+    <!-- Side Footstep Running Board -->
+    <rect x="180" y="224" width="220" height="6" rx="3" fill="#1E293B" stroke="#94A3B8" stroke-width="1"/>
+  </g>
+
+  <!-- Model Nameplate at Bottom -->
+  <text x="300" y="325" font-family="'Outfit', 'Montserrat', sans-serif" font-weight="800" font-size="18" fill="#F1F5F9" letter-spacing="1.5" text-anchor="middle">
+    TOYOTA INNOVA
+  </text>
+  <text x="300" y="344" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="11" fill="#94A3B8" letter-spacing="1" text-anchor="middle">
+    7+1 SEATER • HIGHWAY KING • CAPTAIN SEATS • BULLETPROOF RELIABILITY
+  </text>
+</svg>

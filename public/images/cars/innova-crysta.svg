@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="crystaBody" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="25%" stop-color="#1E293B"/>
+      <stop offset="65%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <linearGradient id="chromeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <radialGradient id="studioLight" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#05080E" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="wheelRim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="35%" stop-color="#94A3B8"/>
+      <stop offset="75%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    <filter id="carShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="600" height="360" rx="16" fill="url(#studioLight)"/>
+  
+  <path d="M0 270 L600 270 M0 300 L600 300" stroke="#1E293B" stroke-width="1" stroke-dasharray="8 8"/>
+  <ellipse cx="300" cy="275" rx="250" ry="25" fill="#030712" opacity="0.95" filter="url(#carShadow)"/>
+
+  <!-- Badge Top Right -->
+  <g transform="translate(450, 25)">
+    <rect width="125" height="30" rx="15" fill="#1E293B" stroke="url(#goldAcc)" stroke-width="1.5"/>
+    <text x="62" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#FBBF24" text-anchor="middle">7 + 1 SEATER</text>
+  </g>
+
+  <!-- Category Badge Top Left -->
+  <g transform="translate(25, 25)">
+    <rect width="120" height="26" rx="6" fill="#F59E0B" fill-opacity="0.2" stroke="#F59E0B" stroke-width="1.2"/>
+    <text x="60" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#FBBF24" text-anchor="middle">PREMIUM VIP MPV</text>
+  </g>
+
+  <!-- Car Body: Toyota Innova Crysta -->
+  <g id="car-crysta" transform="translate(22, 28)">
+    <!-- Shark Fin Antenna -->
+    <polygon points="135,68 148,68 144,60 137,60" fill="#334155"/>
+
+    <!-- Roof Rails -->
+    <path d="M 160 67 L 415 70" stroke="#94A3B8" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="175" y="69" width="12" height="6" fill="#1E293B"/>
+    <rect x="290" y="70" width="12" height="6" fill="#1E293B"/>
+    <rect x="400" y="71" width="12" height="6" fill="#1E293B"/>
+
+    <!-- Massive, Elegant Crysta Silhouette -->
+    <path d="M 40 206 
+             C 40 148, 55 124, 110 84 
+             C 130 76, 170 70, 225 68 
+             L 410 70 
+             C 450 98, 485 138, 510 152 
+             L 552 162 
+             C 570 170, 575 190, 568 212 
+             L 555 224 
+             L 522 224 
+             C 516 198, 485 182, 458 182 
+             C 430 182, 398 198, 392 224 
+             L 195 224 
+             C 190 198, 160 182, 133 182 
+             C 105 182, 75 198, 70 224 
+             L 36 224 
+             C 32 216, 34 210, 40 206 Z" 
+          fill="url(#crystaBody)" stroke="#475569" stroke-width="1.8"/>
+
+    <!-- Windows (Crysta Saber-Tooth Window Profile with Chrome Beltline) -->
+    <path d="M 112 88 
+             L 220 74 
+             L 402 74 
+             C 435 102, 468 134, 485 146 
+             L 98 146 
+             C 84 124, 94 102, 112 88 Z" 
+          fill="#090D16" stroke="#334155" stroke-width="1.5"/>
+
+    <!-- Crysta Bold Blacked-out Pillars -->
+    <path d="M 225 74 L 220 146" stroke="#020617" stroke-width="8"/>
+    <path d="M 330 74 L 325 146" stroke="#020617" stroke-width="8"/>
+    <path d="M 436 94 L 442 146" stroke="#020617" stroke-width="6"/>
+    <path d="M 106 92 L 98 146" stroke="#020617" stroke-width="7"/>
+
+    <!-- Full-Length Chrome Beltline Accent -->
+    <path d="M 98 146 L 485 146" stroke="url(#chromeGlow)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Window Tint Sheen -->
+    <path d="M 140 84 L 385 84 L 355 104 L 130 104 Z" fill="#38BDF8" opacity="0.12"/>
+
+    <!-- Crisp Dynamic Character Lines -->
+    <path d="M 65 162 Q 285 154 542 165" stroke="#94A3B8" stroke-width="2.5" fill="none"/>
+    <path d="M 62 198 Q 285 192 550 202" stroke="#334155" stroke-width="2" fill="none"/>
+
+    <!-- Doors & Chrome Handles -->
+    <path d="M 325 146 L 320 224" stroke="#1E293B" stroke-width="1.2"/>
+    <path d="M 215 146 L 210 224" stroke="#1E293B" stroke-width="1.2"/>
+    <rect x="230" y="156" width="24" height="6" rx="3" fill="url(#chromeGlow)" stroke="#334155" stroke-width="0.8"/>
+    <rect x="340" y="156" width="24" height="6" rx="3" fill="url(#chromeGlow)" stroke="#334155" stroke-width="0.8"/>
+
+    <!-- Sharp Dual-Beam Projector LED Headlamps -->
+    <path d="M 498 148 L 558 160 C 566 170 568 182 560 192 L 518 186 Z" fill="#0F172A" stroke="#38BDF8" stroke-width="1.8"/>
+    <!-- LED DRL Brow -->
+    <path d="M 505 152 L 554 162" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="530" cy="172" r="5" fill="#FFFFFF"/>
+    <circle cx="548" cy="176" r="4" fill="#38BDF8"/>
+
+    <!-- Massive Crysta Chrome Slat Grille -->
+    <path d="M 542 180 C 560 184 568 192 562 204 L 530 210 Z" fill="#1E293B"/>
+    <path d="M 542 184 L 562 187" stroke="url(#chromeGlow)" stroke-width="2"/>
+    <path d="M 538 192 L 560 195" stroke="url(#chromeGlow)" stroke-width="2"/>
+    <path d="M 534 200 L 554 203" stroke="url(#chromeGlow)" stroke-width="2"/>
+
+    <!-- Crysta Inverted Sabre L-shaped Taillights -->
+    <path d="M 40 198 L 44 122 C 54 122 64 132 64 148 L 56 198 Z" fill="#EF4444" stroke="#DC2626" stroke-width="1.5"/>
+    <path d="M 44 125 L 62 150 L 52 190" stroke="#F87171" stroke-width="2.5" fill="none"/>
+
+    <!-- Chrome Side Footstep Running Board -->
+    <rect x="185" y="222" width="220" height="6" rx="3" fill="#0F172A" stroke="url(#chromeGlow)" stroke-width="1.2"/>
+
+    <!-- 17" Dual-Tone Diamond-Cut Alloy Wheels -->
+    <g transform="translate(133, 224)">
+      <circle cx="0" cy="0" r="43" fill="#020617" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="37" fill="#0F172A"/>
+      <circle cx="0" cy="0" r="29" fill="url(#wheelRim)" stroke="#F8FAFC" stroke-width="1.8"/>
+      <!-- Turbine style diamond cut spokes -->
+      <path d="M0 -26 L0 26 M-26 0 L26 0 M-18 -18 L18 18 M-18 18 L18 -18" stroke="#FFFFFF" stroke-width="3.5"/>
+      <circle cx="0" cy="0" r="9" fill="#F59E0B"/>
+    </g>
+
+    <g transform="translate(458, 224)">
+      <circle cx="0" cy="0" r="43" fill="#020617" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="37" fill="#0F172A"/>
+      <circle cx="0" cy="0" r="29" fill="url(#wheelRim)" stroke="#F8FAFC" stroke-width="1.8"/>
+      <path d="M0 -26 L0 26 M-26 0 L26 0 M-18 -18 L18 18 M-18 18 L18 -18" stroke="#FFFFFF" stroke-width="3.5"/>
+      <circle cx="0" cy="0" r="9" fill="#F59E0B"/>
+    </g>
+  </g>
+
+  <!-- Model Nameplate at Bottom -->
+  <text x="300" y="325" font-family="'Outfit', 'Montserrat', sans-serif" font-weight="900" font-size="19" fill="#F1F5F9" letter-spacing="2" text-anchor="middle">
+    TOYOTA INNOVA CRYSTA
+  </text>
+  <text x="300" y="344" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#FBBF24" letter-spacing="1.2" text-anchor="middle">
+    7+1 SEATER • LUXURY PUSHBACK SEATS • CLIMATE CONTROL • VIP CHAUFFEUR
+  </text>
+</svg>

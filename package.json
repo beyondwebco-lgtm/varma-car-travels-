@@ -1,0 +1,21 @@
+{
+  "name": "varma-car-travels",
+  "version": "1.0.0",
+  "description": "Premium Car Rental & Travel Service Website for VARMA CAR TRAVELS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "car-rental",
+    "travels",
+    "taxi-service",
+    "varma-car-travels"
+  ],
+  "author": "VARMA CAR TRAVELS",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

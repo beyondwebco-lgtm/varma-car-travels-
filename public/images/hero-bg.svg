@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#05070B"/>
+      <stop offset="50%" stop-color="#0B0F17"/>
+      <stop offset="85%" stop-color="#141B28"/>
+      <stop offset="100%" stop-color="#1E1912"/>
+    </linearGradient>
+    <radialGradient id="goldHorizon" cx="50%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.35"/>
+      <stop offset="35%" stop-color="#B45309" stop-opacity="0.15"/>
+      <stop offset="70%" stop-color="#78350F" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="roadGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#0C0F17"/>
+      <stop offset="100%" stop-color="#040609"/>
+    </linearGradient>
+    <linearGradient id="laneGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FBBF24" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="speedLightGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#FBBF24" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#FFEFA8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="speedLightRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DC2626" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#EF4444" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#FCA5A5" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="bokehGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Sky / Ambience -->
+  <rect width="1920" height="1080" fill="url(#skyGrad)"/>
+  <rect width="1920" height="1080" fill="url(#goldHorizon)"/>
+
+  <!-- City Skyline Silhouette in the Distance -->
+  <path d="M 0 780 
+           L 120 780 L 120 740 L 150 740 L 150 780 
+           L 240 780 L 240 710 L 270 710 L 270 690 L 290 690 L 290 780 
+           L 410 780 L 410 730 L 460 730 L 460 780 
+           L 580 780 L 580 670 L 620 670 L 620 780 
+           L 750 780 L 750 700 L 780 700 L 780 780 
+           L 920 780 L 920 650 L 950 620 L 980 650 L 980 780 
+           L 1120 780 L 1120 680 L 1160 680 L 1160 780 
+           L 1300 780 L 1300 720 L 1340 720 L 1340 780 
+           L 1500 780 L 1500 660 L 1530 660 L 1530 780 
+           L 1680 780 L 1680 710 L 1720 710 L 1720 780 
+           L 1920 780 L 1920 1080 L 0 1080 Z" 
+        fill="#070A0F" opacity="0.65"/>
+
+  <!-- Highway Perspective -->
+  <polygon points="960,760 1000,760 1600,1080 320,1080" fill="url(#roadGrad)"/>
+  
+  <!-- Center Golden Highway Lane Marker -->
+  <polygon points="978,760 982,760 1005,1080 955,1080" fill="url(#laneGlow)"/>
+  <polygon points="979,770 981,770 990,830 970,830" fill="#FBBF24"/>
+  <polygon points="977,855 983,855 997,935 963,935" fill="#FBBF24"/>
+  <polygon points="974,960 986,960 1010,1080 950,1080" fill="#FBBF24"/>
+
+  <!-- Speed Light Streaks (Car Traffic Lights / Long Exposure effect) -->
+  <path d="M 990 770 Q 1150 850 1650 940" stroke="url(#speedLightRed)" stroke-width="4" fill="none"/>
+  <path d="M 1000 775 Q 1200 870 1780 980" stroke="url(#speedLightRed)" stroke-width="6" fill="none"/>
+  <path d="M 970 770 Q 820 850 320 950" stroke="url(#speedLightGold)" stroke-width="4" fill="none"/>
+  <path d="M 960 775 Q 780 870 200 1000" stroke="url(#speedLightGold)" stroke-width="7" fill="none"/>
+
+  <!-- Bokeh Atmospheric Glows -->
+  <circle cx="450" cy="520" r="140" fill="url(#bokehGlow)"/>
+  <circle cx="1450" cy="480" r="180" fill="url(#bokehGlow)"/>
+  <circle cx="960" cy="740" r="220" fill="url(#bokehGlow)"/>
+
+  <!-- Overlay Dark Vignette -->
+  <rect width="1920" height="1080" fill="#000000" opacity="0.4"/>
+</svg>
