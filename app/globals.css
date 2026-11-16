@@ -2201,71 +2201,304 @@ ul {
   100% { transform: scale(1.4); opacity: 0; }
 }
 
-.floating-whatsapp-popover {
-  position: absolute;
-  bottom: calc(100% + 14px);
-  right: 0;
-  width: 290px;
-  background: #111624;
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  padding: 16px;
+/* Semi-transparent Backdrop for Floating Popovers */
+.floating-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 15, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1040;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
-  transition: all var(--transition-normal);
-  z-index: 1000;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+  pointer-events: none;
 }
 
-.floating-whatsapp-widget:hover .floating-whatsapp-popover,
-.floating-whatsapp-widget.open .floating-whatsapp-popover {
+.floating-backdrop.active {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  pointer-events: auto;
 }
 
-.wa-popover-header {
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 10px;
+/* Floating Quick Cards (WhatsApp & Call) */
+.floating-quick-card {
+  position: fixed;
+  z-index: 1050;
+  width: 350px;
+  background: rgba(14, 19, 32, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(0, 0, 0, 0.35);
+  padding: 18px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.96);
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-.wa-popover-title {
-  font-size: 0.95rem;
+.floating-quick-card.floating-wa-card {
+  border-color: rgba(37, 211, 102, 0.35);
+  bottom: 100px;
+  right: 28px;
+}
+
+.floating-quick-card.floating-call-card {
+  border-color: rgba(245, 158, 11, 0.35);
+  bottom: 100px;
+  left: 28px;
+}
+
+.floating-quick-card.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Quick Card Header */
+.quick-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quick-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.quick-card-icon.wa {
+  background: rgba(37, 211, 102, 0.18);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+}
+
+.quick-card-icon.call {
+  background: rgba(245, 158, 11, 0.18);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.quick-card-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.quick-card-title {
+  font-size: 0.985rem;
   font-weight: 800;
   color: var(--text-white);
+  line-height: 1.25;
 }
 
-.wa-popover-sub {
+.quick-card-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.775rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.live-dot.green {
+  background: #22C55E;
+  box-shadow: 0 0 6px #22C55E;
+  animation: pulseLight 1.8s infinite;
+}
+
+.live-dot.gold {
+  background: #F59E0B;
+  box-shadow: 0 0 6px #F59E0B;
+  animation: pulseLight 1.8s infinite;
+}
+
+.quick-card-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.quick-card-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #EF4444;
+  color: #EF4444;
+  transform: rotate(90deg);
+}
+
+/* Quick Card Options */
+.quick-card-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quick-card-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  color: var(--text-white);
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+
+.quick-card-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.quick-card-item.wa-item:hover {
+  border-color: rgba(37, 211, 102, 0.5);
+  background: rgba(37, 211, 102, 0.12);
+}
+
+.quick-card-item.wa-item:hover .item-arrow-col {
+  color: #25D366;
+  transform: translateX(3px);
+}
+
+.quick-card-item.call-item:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.quick-card-item.call-item:hover .item-arrow-col {
+  color: #F59E0B;
+  transform: rotate(15deg);
+}
+
+.item-icon-col {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.item-icon-col.wa-col {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25D366;
+}
+
+.item-icon-col.call-col {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+}
+
+.item-info-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.item-label {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.item-tag {
+  font-size: 0.675rem;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.item-tag.tag-primary {
+  background: rgba(37, 211, 102, 0.15);
+  color: #4ADE80;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.item-tag.tag-dispatch {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.item-tag.tag-backup {
+  background: rgba(148, 163, 184, 0.15);
+  color: #CBD5E1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.item-number {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: 0.3px;
+}
+
+.item-arrow-col {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: all 0.22s ease;
+  flex-shrink: 0;
+  padding-left: 4px;
+}
+
+.quick-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.725rem;
   color: var(--text-muted);
 }
 
-.wa-popover-numbers {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.wa-number-choice {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 9px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  color: var(--text-white);
-  font-size: 0.885rem;
-  font-weight: 700;
-  transition: var(--transition-fast);
-}
-
-.wa-number-choice:hover {
-  background: rgba(37, 211, 102, 0.15);
-  border-color: #25D366;
-  color: #25D366;
+.quick-card-footer i {
+  color: var(--gold-400);
+  font-size: 0.8rem;
 }
 
 /* Floating Call Button for Mobile Users (Bottom-Left) */
@@ -2273,7 +2506,7 @@ ul {
   position: fixed;
   bottom: 28px;
   left: 28px;
-  z-index: 999;
+  z-index: 1060;
   display: none;
 }
 
@@ -2303,28 +2536,9 @@ ul {
   transform: scale(1.1);
 }
 
-.floating-call-popover {
-  position: absolute;
-  bottom: calc(100% + 14px);
-  left: 0;
-  width: 270px;
-  background: #111624;
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  padding: 16px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  transition: all var(--transition-normal);
-  z-index: 1000;
-}
-
-.floating-call-widget:hover .floating-call-popover,
-.floating-call-widget.open .floating-call-popover {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.floating-call-btn.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.7);
 }
 
 /* Back to Top Button */
@@ -2736,6 +2950,7 @@ ul {
   .floating-whatsapp-widget {
     bottom: max(16px, env(safe-area-inset-bottom, 16px));
     right: 16px;
+    z-index: 1060;
   }
 
   .floating-whatsapp-btn {
@@ -2744,14 +2959,10 @@ ul {
     font-size: 1.75rem;
   }
 
-  .floating-whatsapp-popover {
-    width: min(290px, calc(100vw - 32px));
-    right: 0;
-  }
-
   .floating-call-widget {
     bottom: max(16px, env(safe-area-inset-bottom, 16px));
     left: 16px;
+    z-index: 1060;
     display: block;
   }
 
@@ -2761,9 +2972,18 @@ ul {
     font-size: 1.45rem;
   }
 
-  .floating-call-popover {
-    width: min(270px, calc(100vw - 32px));
-    left: 0;
+  /* Centered, sleek mobile popover card */
+  .floating-quick-card {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    bottom: max(82px, calc(env(safe-area-inset-bottom, 16px) + 76px)) !important;
+    border-radius: 18px !important;
+    padding: 16px !important;
+    z-index: 1070 !important;
   }
 
   .back-to-top-btn {

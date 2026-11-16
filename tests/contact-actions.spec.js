@@ -47,15 +47,48 @@ test.describe('VARMA CAR TRAVELS - Contact & Interactive Actions', () => {
     }
   });
 
-  test('TC11 - Floating WhatsApp and Phone buttons are clickable without intrusive popover overlay', async ({ page }) => {
+  test('TC11 - Floating WhatsApp and Phone quick support dialogs open smoothly with primary and secondary lines', async ({ page }) => {
     const home = new HomePage(page);
     await home.goto();
 
     await expect(home.floatingWaBtn).toBeVisible();
-    await expect(home.floatingWaBtn).toHaveAttribute('href', /wa\.me\/917569526527/);
 
-    // Verify there is NO floating popover in the DOM
-    const popover = page.locator('.floating-whatsapp-popover');
-    await expect(popover).toHaveCount(0);
+    // 1. Click WhatsApp floating button to open WhatsApp Quick Support
+    await home.floatingWaBtn.click({ force: true });
+    const waCard = page.locator('.floating-wa-card');
+    await expect(waCard).toBeVisible();
+    await expect(waCard).toContainText('WhatsApp Quick Support');
+    await expect(waCard).toContainText('7569526527');
+    await expect(waCard).toContainText('9912196524');
+
+    // Verify WhatsApp links inside the card
+    const waLinks = waCard.locator('a[href*="wa.me/91"]');
+    expect(await waLinks.count()).toBe(2);
+    await expect(waLinks.nth(0)).toHaveAttribute('href', /wa\.me\/917569526527/);
+    await expect(waLinks.nth(1)).toHaveAttribute('href', /wa\.me\/919912196524/);
+
+    // 2. Click close button on WhatsApp card
+    await waCard.locator('.quick-card-close').click({ force: true });
+    await expect(waCard).not.toHaveClass(/open/);
+
+    // 3. For mobile/tablet where floating call button is visible, test Call Quick Support
+    if (await home.floatingCallBtn.isVisible()) {
+      await home.floatingCallBtn.click({ force: true });
+      const callCard = page.locator('.floating-call-card');
+      await expect(callCard).toBeVisible();
+      await expect(callCard).toContainText('24/7 Telephone Helpline');
+      await expect(callCard).toContainText('7569526527');
+      await expect(callCard).toContainText('9912196524');
+
+      // Verify phone links inside call card
+      const callLinks = callCard.locator('a[href*="tel:"]');
+      expect(await callLinks.count()).toBe(2);
+      await expect(callLinks.nth(0)).toHaveAttribute('href', 'tel:7569526527');
+      await expect(callLinks.nth(1)).toHaveAttribute('href', 'tel:9912196524');
+
+      // Click backdrop to close
+      await page.locator('.floating-backdrop').click({ force: true });
+      await expect(callCard).not.toHaveClass(/open/);
+    }
   });
 });
