@@ -64,7 +64,7 @@ export default function LocationSection() {
               <div className="loc-detail-item">
                 <i className="fa-solid fa-map-pin"></i>
                 <div>
-                  <h5>Operational Hub Coordinates</h5>
+                  <h4>Operational Hub Coordinates</h4>
                   <p>
                     <strong>Tanuku, Sajjapuram</strong> &bull; Latitude: 16.768000, Longitude: 81.681306
                   </p>
@@ -74,7 +74,7 @@ export default function LocationSection() {
               <div className="loc-detail-item">
                 <i className="fa-solid fa-phone"></i>
                 <div>
-                  <h5>Direct Helpline Numbers</h5>
+                  <h4>Direct Helpline Numbers</h4>
                   <p>
                     <a href={`tel:${PRIMARY_PHONE}`} style={{ color: 'var(--gold-400)' }}>
                       {PRIMARY_PHONE}
@@ -90,7 +90,7 @@ export default function LocationSection() {
               <div className="loc-detail-item">
                 <i className="fa-solid fa-clock"></i>
                 <div>
-                  <h5>Working Hours</h5>
+                  <h4>Working Hours</h4>
                   <p>Open 24 Hours / 7 Days a Week (All 365 Days)</p>
                 </div>
               </div>

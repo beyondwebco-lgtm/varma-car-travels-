@@ -72,6 +72,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -268,16 +270,16 @@ ul {
 }
 
 .btn-whatsapp {
-  background: #25D366;
+  background: #15803D;
   color: #FFFFFF;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 6px 20px rgba(21, 128, 61, 0.35);
 }
 
 .btn-whatsapp:hover {
-  background: #20BD5A;
+  background: #166534;
   color: #FFFFFF;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 10px 25px rgba(21, 128, 61, 0.5);
 }
 
 .btn-sm {
@@ -387,8 +389,29 @@ ul {
 }
 
 @media (max-width: 820px) {
-  .top-bar-left .hide-mobile {
+  .hide-mobile,
+  .top-bar-left .hide-mobile,
+  .top-bar-right .hide-mobile {
+    display: none !important;
+  }
+  .top-bar .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+  .top-bar-left, .top-bar-right {
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar-left {
     display: none;
+  }
+  .top-bar-item {
+    font-size: 0.775rem;
   }
 }
 
@@ -589,7 +612,7 @@ ul {
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 85%;
   max-width: 380px;
   height: 100vh;
@@ -600,13 +623,16 @@ ul {
   flex-direction: column;
   justify-content: space-between;
   z-index: 1050;
-  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
   overflow-y: auto;
 }
 
 .mobile-nav-drawer.active {
-  right: 0;
+  transform: translateX(0);
+  visibility: visible;
 }
 
 .mobile-nav-overlay {
@@ -2069,6 +2095,9 @@ ul {
 .footer-contact-item a {
   color: var(--text-white);
   font-weight: 700;
+  display: inline-block;
+  padding: 4px 0;
+  min-height: 24px;
 }
 
 .footer-contact-item a:hover {
@@ -2336,7 +2365,8 @@ ul {
 /* -----------------------------
    Booking Modal Component
    ----------------------------- */
-.modal-overlay {
+.modal-overlay,
+.booking-modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(4, 6, 10, 0.85);
@@ -2352,12 +2382,14 @@ ul {
   transition: all 0.3s ease;
 }
 
-.modal-overlay.active {
+.modal-overlay.active,
+.booking-modal-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-.booking-modal-box {
+.booking-modal-box,
+.booking-modal-dialog {
   width: 100%;
   max-width: 600px;
   background: #0F1420;
@@ -2372,7 +2404,9 @@ ul {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.modal-overlay.active .booking-modal-box {
+.modal-overlay.active .booking-modal-box,
+.booking-modal-overlay.active .booking-modal-dialog,
+.booking-modal-overlay.active .booking-modal-box {
   transform: scale(1) translateY(0);
 }
 

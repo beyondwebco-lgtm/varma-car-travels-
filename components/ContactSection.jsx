@@ -72,7 +72,7 @@ export default function ContactSection() {
               </div>
               <div className="channel-text">
                 <span>Direct Phone Helplines</span>
-                <h4>+91 {PRIMARY_PHONE}</h4>
+                <h3>+91 {PRIMARY_PHONE}</h3>
                 <p>Secondary Support: +91 {SECONDARY_PHONE}</p>
               </div>
               <div className="contact-action-btns">
@@ -93,7 +93,7 @@ export default function ContactSection() {
               </div>
               <div className="channel-text">
                 <span>Instant WhatsApp Chat</span>
-                <h4>+91 {PRIMARY_PHONE}</h4>
+                <h3>+91 {PRIMARY_PHONE}</h3>
                 <p>Real-time booking confirmations & driver details</p>
               </div>
               <a
@@ -115,7 +115,7 @@ export default function ContactSection() {
               </div>
               <div className="channel-text">
                 <span>Official Email Inquiries</span>
-                <h4 style={{ fontSize: '1rem', wordBreak: 'break-all' }}>varmacartravels7@gmail.com</h4>
+                <h3 style={{ fontSize: '1rem', wordBreak: 'break-all' }}>varmacartravels7@gmail.com</h3>
                 <p>For corporate contracts, bulk tours, and queries</p>
               </div>
               <a href="mailto:varmacartravels7@gmail.com" className="btn btn-secondary btn-sm">
@@ -130,7 +130,7 @@ export default function ContactSection() {
               </div>
               <div className="channel-text">
                 <span>Main Operations Hub</span>
-                <h4>Tanuku, Sajjapuram</h4>
+                <h3>Tanuku, Sajjapuram</h3>
                 <p>West Godavari District, Andhra Pradesh (16.768000, 81.681306)</p>
               </div>
               <a

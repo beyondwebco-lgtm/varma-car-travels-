@@ -41,7 +41,7 @@ export default function AboutSection() {
                   <i className="fa-solid fa-sparkles"></i>
                 </div>
                 <div>
-                  <h4 className="pillar-title">Sanitized & Spotless Fleet</h4>
+                  <h3 className="pillar-title">Sanitized & Spotless Fleet</h3>
                   <p className="pillar-desc">Deep cleaned, deodorized, and fully air-conditioned after every ride.</p>
                 </div>
               </div>
@@ -51,7 +51,7 @@ export default function AboutSection() {
                   <i className="fa-solid fa-user-tie"></i>
                 </div>
                 <div>
-                  <h4 className="pillar-title">Punctual & Dedicated Chauffeurs</h4>
+                  <h3 className="pillar-title">Punctual & Dedicated Chauffeurs</h3>
                   <p className="pillar-desc">Courteous, verified, well-trained drivers who prioritize your safety.</p>
                 </div>
               </div>
@@ -61,7 +61,7 @@ export default function AboutSection() {
                   <i className="fa-solid fa-receipt"></i>
                 </div>
                 <div>
-                  <h4 className="pillar-title">Clear & Transparent Pricing</h4>
+                  <h3 className="pillar-title">Clear & Transparent Pricing</h3>
                   <p className="pillar-desc">Honest per-km and package rates with zero hidden or surprise charges.</p>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function AboutSection() {
                   <i className="fa-solid fa-headset"></i>
                 </div>
                 <div>
-                  <h4 className="pillar-title">Round-The-Clock 24/7 Availability</h4>
+                  <h3 className="pillar-title">Round-The-Clock 24/7 Availability</h3>
                   <p className="pillar-desc">Always ready for early morning flights, late arrivals, or urgent trips.</p>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function AboutSection() {
               <div className="about-badge-header">
                 <i className="fa-solid fa-shield-halved"></i>
                 <div>
-                  <h4>Certified Travel Excellence</h4>
+                  <h3 style={{ fontSize: '1.1rem', margin: 0 }}>Certified Travel Excellence</h3>
                   <span>Licensed & Verified Travel Operators</span>
                 </div>
               </div>

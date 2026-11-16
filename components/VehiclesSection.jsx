@@ -204,7 +204,7 @@ export default function VehiclesSection() {
                   <button
                     type="button"
                     className="btn btn-primary btn-block btn-shimmer"
-                    onClick={() => openBookingModal(`${car.name} (${car.seating})`)}
+                    onClick={() => openBookingModal(`${car.name} (${car.seating.replace(/\s*\+\s*/g, '+')})`)}
                   >
                     <i className="fa-solid fa-bolt"></i>
                     <span>Book Now</span>

@@ -18,7 +18,20 @@ export default function BookingModal() {
 
   useEffect(() => {
     if (selectedVehicle) {
-      setVehicle(selectedVehicle);
+      const norm = selectedVehicle.replace(/\s+/g, ' ').replace(/\s*\+\s*/g, '+').toLowerCase().trim();
+      const options = [
+        'Toyota Innova Crysta (7+1 Seater)',
+        'Toyota Innova (7+1 Seater)',
+        'Kia Carens (6+1 Seater)',
+        'Maruti Suzuki Ertiga (6+1 Seater)',
+        'Toyota Etios (4+1 Seater)',
+        'Maruti Suzuki Dzire (4+1 Seater)'
+      ];
+      const match = options.find((opt) => {
+        const optNorm = opt.replace(/\s+/g, ' ').replace(/\s*\+\s*/g, '+').toLowerCase().trim();
+        return optNorm === norm || norm.includes(optNorm) || optNorm.includes(norm);
+      });
+      setVehicle(match || selectedVehicle);
     }
   }, [selectedVehicle]);
 
@@ -66,8 +79,8 @@ export default function BookingModal() {
   };
 
   return (
-    <div className="booking-modal-overlay active" id="bookingModalOverlay" onClick={closeBookingModal}>
-      <div className="booking-modal-dialog" onClick={(e) => e.stopPropagation()}>
+    <div className="modal-overlay booking-modal-overlay active" id="bookingModalOverlay" onClick={closeBookingModal}>
+      <div className="booking-modal-box booking-modal-dialog" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-title-group">
             <h3 className="modal-title">Instant Ride Reservation</h3>

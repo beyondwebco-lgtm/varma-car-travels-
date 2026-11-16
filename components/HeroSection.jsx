@@ -137,7 +137,7 @@ export default function HeroSection() {
           {/* Right Quick Booking Card / Fare Calculator */}
           <div className="hero-booking-card">
             <div className="booking-card-header">
-              <h3 className="booking-card-title">Book Your Journey</h3>
+              <h2 className="booking-card-title">Book Your Journey</h2>
               <p className="booking-card-subtitle">Get Instant Availability & Best Fare Quote via WhatsApp</p>
             </div>
 
