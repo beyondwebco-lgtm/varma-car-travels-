@@ -46,7 +46,7 @@
 
   /* Dimensions & Spacing */
   --container-max: 1240px;
-  --header-height: 84px;
+  --header-height: 74px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -417,7 +417,7 @@ ul {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
-  gap: 20px;
+  gap: clamp(10px, 1.8vw, 24px);
 }
 
 /* Brand Logo */
@@ -430,13 +430,14 @@ ul {
 }
 
 .brand-logo img {
-  height: 48px;
+  height: 44px;
   width: auto;
+  flex-shrink: 0;
   transition: transform var(--transition-normal);
 }
 
 .brand-logo:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .brand-logo-text {
@@ -446,11 +447,12 @@ ul {
 
 .brand-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   color: var(--text-white);
-  line-height: 1.1;
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .brand-title span {
@@ -458,26 +460,30 @@ ul {
 }
 
 .brand-subtitle {
-  font-size: 0.675rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 2.2px;
+  letter-spacing: 2px;
   color: var(--gold-300);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* Nav Menu Links */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: clamp(10px, 1.6vw, 22px);
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
   color: var(--text-secondary);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.915rem;
   position: relative;
-  padding: 6px 0;
+  padding: 6px 2px;
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
@@ -505,20 +511,22 @@ ul {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .nav-phone-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   color: var(--text-white);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   padding: 8px 14px;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
+  white-space: nowrap;
   transition: var(--transition-normal);
 }
 
@@ -532,17 +540,22 @@ ul {
   color: var(--gold-400);
 }
 
+.nav-actions .btn {
+  padding: 10px 20px;
+  font-size: 0.885rem;
+}
+
 /* Mobile Nav Toggle */
 .mobile-toggle-btn {
   display: none;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-light);
   color: var(--text-white);
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   align-items: center;
   justify-content: center;
   transition: var(--transition-fast);
@@ -636,7 +649,16 @@ ul {
   gap: 12px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1160px) {
+  .nav-phone-link {
+    display: none;
+  }
+  .nav-menu {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
   .nav-menu {
     display: none;
   }
@@ -2962,12 +2984,16 @@ ul {
 
 /* --- EXTRA COMPACT PHONES (<= 360px - e.g. iPhone SE / small Androids) --- */
 @media (max-width: 360px) {
+  .brand-logo img {
+    height: 32px;
+  }
+
   .brand-subtitle {
     display: none;
   }
 
   .brand-title {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
 
   .hero-title {
