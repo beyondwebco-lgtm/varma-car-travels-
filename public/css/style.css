@@ -422,22 +422,40 @@ ul {
 
 /* Brand Logo */
 .brand-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  background: #ffffff;
+  padding: 4px 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   text-decoration: none;
   flex-shrink: 0;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.brand-logo img {
-  height: 44px;
+.brand-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+}
+
+.brand-logo img,
+.brand-logo-img {
+  height: 48px;
   width: auto;
-  flex-shrink: 0;
-  transition: transform var(--transition-normal);
+  max-width: 140px;
+  display: block;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
 }
 
-.brand-logo:hover img {
-  transform: scale(1.05);
+.brand-logo:hover img,
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.02);
+}
+
+.footer-brand-logo {
+  margin-bottom: 14px;
 }
 
 .brand-logo-text {
@@ -2514,8 +2532,14 @@ ul {
   }
 
   /* Header & Brand */
-  .brand-logo img {
-    height: 40px;
+  .brand-logo {
+    padding: 3px 10px;
+  }
+
+  .brand-logo img,
+  .brand-logo-img {
+    height: 42px;
+    max-width: 115px;
   }
 
   .brand-title {
@@ -2693,8 +2717,14 @@ ul {
   }
 
   /* Header & Logo */
-  .brand-logo img {
-    height: 36px;
+  .brand-logo {
+    padding: 3px 9px;
+  }
+
+  .brand-logo img,
+  .brand-logo-img {
+    height: 38px;
+    max-width: 100px;
   }
 
   .brand-title {
@@ -2984,8 +3014,14 @@ ul {
 
 /* --- EXTRA COMPACT PHONES (<= 360px - e.g. iPhone SE / small Androids) --- */
 @media (max-width: 360px) {
-  .brand-logo img {
+  .brand-logo {
+    padding: 2px 7px;
+  }
+
+  .brand-logo img,
+  .brand-logo-img {
     height: 32px;
+    max-width: 85px;
   }
 
   .brand-subtitle {
