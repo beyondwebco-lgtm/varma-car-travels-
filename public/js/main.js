@@ -1,31 +1,103 @@
 /**
  * VARMA CAR TRAVELS - Master JavaScript File
- * Luxury Car Rental & Travel Services
+ * High-performance, clean, modular client scripts
  */
 
+// Global Booking Modal Trigger (available immediately to prevent pre-DOMContentLoaded errors)
+window.openBookingModal = function(preselectedVehicle = '') {
+  const modalOverlay = document.getElementById('bookingModalOverlay');
+  const modalVehicleSelect = document.getElementById('modalVehicle');
+  if (modalVehicleSelect && preselectedVehicle) {
+    modalVehicleSelect.value = preselectedVehicle;
+  }
+  modalOverlay?.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  'use strict';
+
   // --- Constants & Config ---
   const PRIMARY_PHONE = '7569526527';
   const SECONDARY_PHONE = '9912196524';
   const COUNTRY_CODE = '91';
 
-  // --- Sticky Header Effect ---
+  // --- Elements Cache ---
   const navbarWrapper = document.getElementById('navbarWrapper');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbarWrapper?.classList.add('scrolled');
-    } else {
-      navbarWrapper?.classList.remove('scrolled');
-    }
-  });
-
-  // --- Mobile Drawer Menu ---
   const mobileToggleBtn = document.getElementById('mobileToggleBtn');
   const mobileCloseBtn = document.getElementById('mobileCloseBtn');
   const mobileNavDrawer = document.getElementById('mobileNavDrawer');
   const mobileNavOverlay = document.getElementById('mobileNavOverlay');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-links .nav-link');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const vehicleCards = document.querySelectorAll('.vehicle-card');
+  const tripTypeBtns = document.querySelectorAll('.trip-type-btn');
+  const heroBookingForm = document.getElementById('heroBookingForm');
+  const modalOverlay = document.getElementById('bookingModalOverlay');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalBookingForm = document.getElementById('modalBookingForm');
+  const contactForm = document.getElementById('contactInquiryForm');
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  const floatingWaBtn = document.getElementById('floatingWaBtn');
+  const floatingWaWidget = document.querySelector('.floating-whatsapp-widget');
+  const floatingCallBtn = document.getElementById('floatingCallBtn');
+  const floatingCallWidget = document.querySelector('.floating-call-widget');
+  const mapContainer = document.getElementById('locationMapContainer');
+  const loadMapBtn = document.getElementById('loadMapBtn');
 
+  let selectedTripType = 'Outstation Journey';
+
+  // --- Throttled Scroll Manager using requestAnimationFrame ---
+  let isScrolling = false;
+  function handleScroll() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Sticky Header
+    if (scrollY > 30) {
+      navbarWrapper?.classList.add('scrolled');
+    } else {
+      navbarWrapper?.classList.remove('scrolled');
+    }
+
+    // Back to Top Button
+    if (scrollY > 400) {
+      backToTopBtn?.classList.add('visible');
+    } else {
+      backToTopBtn?.classList.remove('visible');
+    }
+
+    // ScrollSpy (Active nav highlight)
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 140;
+      const sectionId = current.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+
+    isScrolling = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      window.requestAnimationFrame(handleScroll);
+      isScrolling = true;
+    }
+  }, { passive: true });
+
+  // Initial scroll check on load
+  handleScroll();
+
+  // --- Mobile Navigation Drawer ---
   function openMobileMenu() {
     mobileNavDrawer?.classList.add('active');
     mobileNavOverlay?.classList.add('active');
@@ -43,38 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileNavOverlay?.addEventListener('click', closeMobileMenu);
 
   mobileNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeMobileMenu();
-    });
-  });
-
-  // --- Smooth Scroll & Active Nav Spy ---
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-menu .nav-link');
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
+    link.addEventListener('click', closeMobileMenu);
   });
 
   // --- Vehicle Category Filter ---
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const vehicleCards = document.querySelectorAll('.vehicle-card');
-
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
@@ -88,11 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
           card.style.display = 'flex';
           setTimeout(() => {
             card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
+            card.style.transform = 'translateY(0)';
           }, 10);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'scale(0.95)';
+          card.style.transform = 'translateY(10px)';
           setTimeout(() => {
             card.style.display = 'none';
           }, 200);
@@ -102,9 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Hero Trip Type Toggle Buttons ---
-  const tripTypeBtns = document.querySelectorAll('.trip-type-btn');
-  let selectedTripType = 'Outstation Journey';
-
   tripTypeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       tripTypeBtns.forEach(b => b.classList.remove('active'));
@@ -133,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = lines.join('\n');
     const encoded = encodeURIComponent(message);
     const url = `https://wa.me/${COUNTRY_CODE}${preferredPhone}?text=${encoded}`;
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 
   // --- Toast Notification Helper ---
@@ -153,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Hero Quick Booking Form Submission ---
-  const heroBookingForm = document.getElementById('heroBookingForm');
   heroBookingForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const pickup = document.getElementById('heroPickup')?.value.trim();
@@ -181,19 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Booking Modal Logic ---
-  const modalOverlay = document.getElementById('bookingModalOverlay');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const modalVehicleSelect = document.getElementById('modalVehicle');
-  const modalBookingForm = document.getElementById('modalBookingForm');
-
-  window.openBookingModal = function(preselectedVehicle = '') {
-    if (modalVehicleSelect && preselectedVehicle) {
-      modalVehicleSelect.value = preselectedVehicle;
-    }
-    modalOverlay?.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
-
   function closeBookingModal() {
     modalOverlay?.classList.remove('active');
     document.body.style.overflow = '';
@@ -204,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modalOverlay) closeBookingModal();
   });
 
-  // Handle escape key
+  // Global ESC Key Listener
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeBookingModal();
@@ -240,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Contact Section Form Submission ---
-  const contactForm = document.getElementById('contactInquiryForm');
   contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('contactName')?.value.trim();
@@ -266,16 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast('Inquiry generated! Redirecting to WhatsApp...');
   });
 
-  // --- Back to Top Button ---
-  const backToTopBtn = document.getElementById('backToTopBtn');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      backToTopBtn?.classList.add('visible');
-    } else {
-      backToTopBtn?.classList.remove('visible');
-    }
-  });
-
+  // --- Back to Top Click ---
   backToTopBtn?.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
@@ -283,27 +300,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Mobile Touch Toggle for Floating Widgets ---
-  const floatingWaBtn = document.getElementById('floatingWaBtn');
-  const floatingWaWidget = document.querySelector('.floating-whatsapp-widget');
+  // --- Floating Widgets Touch Handler ---
   floatingWaBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     if (window.innerWidth <= 768) {
       floatingWaWidget?.classList.toggle('open');
     } else {
-      // Direct open on desktop
-      window.open(`https://wa.me/${COUNTRY_CODE}${PRIMARY_PHONE}?text=${encodeURIComponent('Hello VARMA CAR TRAVELS, I want to book a car ride.')}`, '_blank');
+      window.open(`https://wa.me/${COUNTRY_CODE}${PRIMARY_PHONE}?text=${encodeURIComponent('Hello VARMA CAR TRAVELS, I want to book a car ride.')}`, '_blank', 'noopener,noreferrer');
     }
   });
 
-  const floatingCallBtn = document.getElementById('floatingCallBtn');
-  const floatingCallWidget = document.querySelector('.floating-call-widget');
   floatingCallBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     floatingCallWidget?.classList.toggle('open');
   });
 
-  // Close floating popovers when tapping outside on mobile
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.floating-whatsapp-widget')) {
       floatingWaWidget?.classList.remove('open');
@@ -313,11 +324,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Set default min date for date inputs to today
+  // --- Date Inputs Initializer ---
   const todayStr = new Date().toISOString().split('T')[0];
   const dateInputs = document.querySelectorAll('input[type="date"]');
   dateInputs.forEach(input => {
     input.setAttribute('min', todayStr);
     if (!input.value) input.value = todayStr;
   });
+
+  // --- Optimized Google Maps Lazy Loader ---
+  let mapLoaded = false;
+  function loadGoogleMap() {
+    if (mapLoaded || !mapContainer) return;
+    mapLoaded = true;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://maps.google.com/maps?q=16.768000,81.681306&hl=en&z=15&output=embed';
+    iframe.title = 'VARMA CAR TRAVELS Google Maps Location';
+    iframe.allowFullscreen = true;
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = '0';
+
+    mapContainer.innerHTML = '';
+    mapContainer.appendChild(iframe);
+  }
+
+  loadMapBtn?.addEventListener('click', loadGoogleMap);
+
+  // Auto-load map when location section is near viewport
+  if ('IntersectionObserver' in window && mapContainer) {
+    const mapObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadGoogleMap();
+          observer.disconnect();
+        }
+      });
+    }, { rootMargin: '250px' });
+    mapObserver.observe(mapContainer);
+  }
 });
