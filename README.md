@@ -1,6 +1,24 @@
 # VARMA CAR TRAVELS - Premium Car Rental & Travel Services
 
-A beautiful, professional, modern, and fully responsive static website built for **VARMA CAR TRAVELS** using **Node.js, HTML5, CSS3, and JavaScript**.
+A production-grade, ultra-fast, and fully responsive website built for **VARMA CAR TRAVELS** using **Next.js (App Router), React 19, and Modern CSS**.
+
+---
+
+## 🚀 Quick Start Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server (http://localhost:3000)
+npm run dev
+
+# Build production bundle
+npm run build
+
+# Start production server
+npm start
+```
 
 ---
 
